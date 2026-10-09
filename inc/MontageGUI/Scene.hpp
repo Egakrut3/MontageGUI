@@ -16,7 +16,7 @@ public:
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
-    virtual sf::Shape &get_shape() = 0;
+    virtual sf::Shape       &get_shape()       = 0;
     virtual sf::Shape const &get_shape() const = 0;
 
 protected:
@@ -28,12 +28,12 @@ private:
 
 class SceneRectangle : public SceneShape {
 public:
-    explicit SceneRectangle(sf::Vector2f const &size = {});
+    explicit SceneRectangle(sf::Vector2f const &size = sf::Vector2f{});
     ~SceneRectangle() override;
 
     void press() override;
 
-    sf::Shape &get_shape() override;
+    sf::Shape       &get_shape() override;
     sf::Shape const &get_shape() const override;
 
 private:

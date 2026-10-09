@@ -1,6 +1,6 @@
 ---
 
-Checks: '-*,readability-*,-readability-redundant-access-specifiers'
+Checks: '-*,readability-*,-readability-redundant-member-init,-readability-redundant-access-specifiers'
 
 WarningsAsErrors: '*'
 

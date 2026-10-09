@@ -5,7 +5,7 @@
 // TODO - C++ modules
 // TODO - How to differ between Compilation end and Build end
 
-static void test_montage_GUI() {
+static void test_montage_gui() {
     using namespace MontageGUI;
 
     Application app{};
@@ -13,7 +13,7 @@ static void test_montage_GUI() {
 }
 
 int main() {
-    test_montage_GUI();
+    test_montage_gui();
 
     return 0;
 }

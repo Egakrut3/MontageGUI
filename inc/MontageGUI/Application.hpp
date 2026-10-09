@@ -13,7 +13,11 @@ public:
     bool one_more_iteration();
 
 private:
-    sf::RenderWindow window_;
+    bool process_events();
+    void refresh();
+
+private:
+    sf::RenderWindow            window_;
     std::optional<sf::Vector2f> drag_start_;
 
     Scene scene_;

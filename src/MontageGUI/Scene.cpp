@@ -12,13 +12,13 @@ bool SceneShape::selected() const {
     return is_selected_;
 }
 
-void SceneShape::draw(sf::RenderTarget &target, sf::RenderStates const states) const {
+void SceneShape::draw(sf::RenderTarget      &target,
+                      sf::RenderStates const states) const {
     target.draw(get_shape(), states);
 }
 
-
-
-SceneRectangle::SceneRectangle(sf::Vector2f const &size) : SceneShape{}, interior_{size} {
+SceneRectangle::SceneRectangle(sf::Vector2f const &size) :
+    SceneShape{}, interior_{size} {
     interior_.setFillColor(sf::Color::Green);
 }
 SceneRectangle::~SceneRectangle() = default;
@@ -34,17 +34,16 @@ sf::Shape const &SceneRectangle::get_shape() const {
     return interior_;
 }
 
-
-
 Scene::Scene() : objects_{} {}
 Scene::~Scene() {
-    for (SceneShape *obj : objects_) {
+    for (SceneShape *const obj : objects_) {
         delete obj;
     }
 }
 
-void Scene::draw(sf::RenderTarget &target, sf::RenderStates const states) const {
-    for (SceneShape const *obj : objects_) {
+void Scene::draw(sf::RenderTarget      &target,
+                 sf::RenderStates const states) const {
+    for (SceneShape const *const obj : objects_) {
         obj->draw(target, states);
     }
 }
