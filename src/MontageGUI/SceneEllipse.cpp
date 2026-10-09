@@ -6,9 +6,9 @@ namespace MontageGUI {
 inline constexpr std::uint8_t FULL_BYTE_MASK = 0xFF;
 inline constexpr std::uint8_t HIGH_BIT_MASK  = 0x80;
 
-SceneEllipse::SceneEllipse(sf::Vector2f const size,
-                           std::size_t const  point_count) :
-    SceneShape{}, interior_{size.x / 2, point_count} {
+SceneEllipse::SceneEllipse(Application *const ptr, sf::Vector2f const size,
+                           std::size_t const point_count) :
+    SceneShape{ptr}, interior_{size.x / 2, point_count} {
     if (std::abs(size.x) > 0) {
         interior_.scale(sf::Vector2f{1, size.y / size.x});
     }

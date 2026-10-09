@@ -2,7 +2,8 @@
 
 namespace MontageGUI {
 
-SceneShape::SceneShape() : sf::Drawable{}, Button{}, is_selected_{} {}
+SceneShape::SceneShape(Application *const ptr) :
+    sf::Drawable{}, Button{ptr}, is_selected_{} {}
 SceneShape::~SceneShape() = default;
 
 void SceneShape::set_selected(bool const is_selected) {

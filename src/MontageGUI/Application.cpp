@@ -17,7 +17,7 @@ Application::Application() :
     scene_{} {}
 Application::~Application() = default;
 
-SceneShape *Application::create_drawn_shape() const {
+SceneShape *Application::create_drawn_shape() {
     assert(drag_start_);
 
     SceneShape *result = nullptr;
@@ -27,14 +27,16 @@ SceneShape *Application::create_drawn_shape() const {
 
         case SceneShapeType::RECTANGLE:
             result = new SceneRectangle{
+                this,
                 window_.mapPixelToCoords(sf::Mouse::getPosition(window_)) -
-                *drag_start_};
+                    *drag_start_};
             break;
 
         case SceneShapeType::ELLIPSE:
             result = new SceneEllipse{
+                this,
                 window_.mapPixelToCoords(sf::Mouse::getPosition(window_)) -
-                *drag_start_};
+                    *drag_start_};
             break;
 
         case SceneShapeType::ENUM_SIZE:

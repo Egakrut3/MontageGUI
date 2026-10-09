@@ -8,8 +8,8 @@ namespace MontageGUI {
 class SceneEllipse : public SceneShape {
 public:
     static constexpr std::size_t DEFAULT_POINT_COUNT = 30;
-    explicit SceneEllipse(sf::Vector2f size,
-                          std::size_t  point_count = DEFAULT_POINT_COUNT);
+    explicit SceneEllipse(Application *ptr, sf::Vector2f size,
+                          std::size_t point_count = DEFAULT_POINT_COUNT);
     ~SceneEllipse() override;
 
     bool contains(sf::Vector2f point) override;

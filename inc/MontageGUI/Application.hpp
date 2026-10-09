@@ -14,7 +14,7 @@ public:
     bool one_more_iteration();
 
 private:
-    SceneShape *create_drawn_shape() const;
+    SceneShape *create_drawn_shape();
 
     bool process_events();
     void refresh();

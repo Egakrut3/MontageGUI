@@ -3,6 +3,8 @@
 
 namespace MontageGUI {
 
+class Application;
+
 class Button {
 public:
     virtual ~Button() = 0;
@@ -10,7 +12,10 @@ public:
     virtual void press() = 0;
 
 protected:
-    explicit Button();
+    explicit Button(Application *ptr);
+
+protected:
+    Application *ptr_;
 };
 
 } // namespace MontageGUI

@@ -2,7 +2,7 @@
 
 namespace MontageGUI {
 
-Button::Button() {}
+Button::Button(Application *const ptr) : ptr_{ptr} {}
 Button::~Button() = default;
 
 } // namespace MontageGUI

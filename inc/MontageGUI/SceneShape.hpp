@@ -6,6 +6,8 @@
 
 namespace MontageGUI {
 
+class Application;
+
 class SceneShape : public sf::Drawable, public Button {
 public:
     ~SceneShape() override = 0;
@@ -20,7 +22,7 @@ public:
     virtual sf::Shape const &get_shape() const = 0;
 
 protected:
-    explicit SceneShape();
+    explicit SceneShape(Application *ptr);
 
 private:
     void set_selected(bool is_selected);
