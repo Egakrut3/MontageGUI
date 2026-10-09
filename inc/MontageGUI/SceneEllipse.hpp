@@ -14,6 +14,8 @@ public:
 
     void press() override;
 
+    bool contains(sf::Vector2f point) override;
+
     sf::Shape       &get_shape() override;
     sf::Shape const &get_shape() const override;
 

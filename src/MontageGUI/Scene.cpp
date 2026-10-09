@@ -9,6 +9,16 @@ Scene::~Scene() {
     }
 }
 
+void Scene::process_press(sf::Vector2f const point) {
+    for (std::vector<SceneShape *>::reverse_iterator it = objects_.rbegin();
+         it != objects_.rend(); ++it) {
+        if ((*it)->contains(point)) {
+            (*it)->set_selected(!(*it)->selected());
+            break;
+        }
+    }
+}
+
 void Scene::draw(sf::RenderTarget      &target,
                  sf::RenderStates const states) const {
     for (SceneShape const *const obj : objects_) {

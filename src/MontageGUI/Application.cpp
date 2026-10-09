@@ -64,7 +64,13 @@ bool Application::process_events() {
         if (sf::Event::MouseButtonPressed const *const event_info =
                 event->getIf<sf::Event::MouseButtonPressed>();
             event_info != nullptr && !drag_start_) {
-            drag_start_ = window_.mapPixelToCoords(event_info->position);
+            sf::Vector2f point = window_.mapPixelToCoords(event_info->position);
+            if (current_drawn_shape_ == SceneShapeType::NOTHING) {
+                scene_.process_press(point);
+            }
+            else {
+                drag_start_ = point;
+            }
         }
 
         if (sf::Event::MouseButtonReleased const *const event_info =

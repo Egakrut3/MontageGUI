@@ -15,6 +15,8 @@ public:
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
+    virtual bool contains(sf::Vector2f point) = 0;
+
     virtual sf::Shape       &get_shape()       = 0;
     virtual sf::Shape const &get_shape() const = 0;
 

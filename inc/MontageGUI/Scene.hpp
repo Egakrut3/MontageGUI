@@ -11,6 +11,8 @@ public:
     explicit Scene();
     ~Scene();
 
+    void process_press(sf::Vector2f point);
+
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
     void add_shape(SceneShape *shape);

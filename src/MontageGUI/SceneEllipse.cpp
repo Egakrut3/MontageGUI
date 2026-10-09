@@ -20,6 +20,12 @@ void SceneEllipse::press() {
     set_selected(!selected());
 }
 
+bool SceneEllipse::contains(sf::Vector2f point) {
+    return (interior_.getGeometricCenter() -
+            interior_.getInverseTransform().transformPoint(point))
+               .length() <= interior_.getRadius();
+}
+
 sf::Shape &SceneEllipse::get_shape() {
     return interior_;
 }
