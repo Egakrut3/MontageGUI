@@ -56,19 +56,20 @@ bool Application::process_events() {
 
         if (sf::Event::KeyReleased const *const event_info =
                 event->getIf<sf::Event::KeyReleased>();
+            event_info != nullptr &&
             event_info->scancode == sf::Keyboard::Scancode::Tab) {
             ++current_drawn_shape_;
         }
 
         if (sf::Event::MouseButtonPressed const *const event_info =
                 event->getIf<sf::Event::MouseButtonPressed>();
-            !drag_start_) {
+            event_info != nullptr && !drag_start_) {
             drag_start_ = window_.mapPixelToCoords(event_info->position);
         }
 
         if (sf::Event::MouseButtonReleased const *const event_info =
                 event->getIf<sf::Event::MouseButtonReleased>();
-            drag_start_) {
+            event_info != nullptr && drag_start_) {
             if (SceneShape *const shape = create_drawn_shape()) {
                 scene_.add_shape(shape);
             }
