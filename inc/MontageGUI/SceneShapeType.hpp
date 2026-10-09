@@ -7,7 +7,7 @@ enum class SceneShapeType {
     NOTHING,
     RECTANGLE,
     ELLIPSE,
-    _SIZE,
+    ENUM_SIZE,
 };
 
 SceneShapeType &operator++(SceneShapeType &state);

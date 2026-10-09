@@ -2,9 +2,12 @@
 
 namespace MontageGUI {
 
+inline constexpr std::uint8_t FULL_BYTE_MASK = 0xFF;
+inline constexpr std::uint8_t HIGH_BIT_MASK  = 0x80;
+
 SceneRectangle::SceneRectangle(sf::Vector2f const size) :
     SceneShape{}, interior_{size} {
-    interior_.setFillColor(sf::Color(0, 0xFF, 0, 0x80));
+    interior_.setFillColor(sf::Color(0, FULL_BYTE_MASK, 0, HIGH_BIT_MASK));
 }
 SceneRectangle::~SceneRectangle() = default;
 

@@ -18,7 +18,7 @@ Application::Application() :
 Application::~Application() = default;
 
 SceneShape *Application::create_drawn_shape() const {
-   assert(drag_start_);
+    assert(drag_start_);
 
     SceneShape *result = nullptr;
     switch (current_drawn_shape_) {
@@ -37,7 +37,7 @@ SceneShape *Application::create_drawn_shape() const {
                 *drag_start_};
             break;
 
-        case SceneShapeType::_SIZE:
+        case SceneShapeType::ENUM_SIZE:
         default:
             assert(false);
     }
@@ -54,27 +54,25 @@ bool Application::process_events() {
             return false;
         }
 
-        if (sf::Event::KeyReleased const *const event_info = event->getIf<sf::Event::KeyReleased>()) {
-            if (event_info->scancode == sf::Keyboard::Scancode::Tab) {
-                ++current_drawn_shape_;
-            }
+        if (sf::Event::KeyReleased const *const event_info =
+                event->getIf<sf::Event::KeyReleased>();
+            event_info->scancode == sf::Keyboard::Scancode::Tab) {
+            ++current_drawn_shape_;
         }
 
         if (sf::Event::MouseButtonPressed const *const event_info =
-                event->getIf<sf::Event::MouseButtonPressed>()) {
-            if (!drag_start_) {
-                drag_start_ = window_.mapPixelToCoords(event_info->position);
-            }
+                event->getIf<sf::Event::MouseButtonPressed>();
+            !drag_start_) {
+            drag_start_ = window_.mapPixelToCoords(event_info->position);
         }
 
         if (sf::Event::MouseButtonReleased const *const event_info =
-                event->getIf<sf::Event::MouseButtonReleased>()) {
-            if (drag_start_) {
-                if (SceneShape *const shape = create_drawn_shape()) {
-                    scene_.add_shape(shape);
-                }
-                drag_start_.reset();
+                event->getIf<sf::Event::MouseButtonReleased>();
+            drag_start_) {
+            if (SceneShape *const shape = create_drawn_shape()) {
+                scene_.add_shape(shape);
             }
+            drag_start_.reset();
         }
     }
 
