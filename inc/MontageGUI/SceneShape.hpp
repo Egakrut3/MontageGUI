@@ -10,8 +10,7 @@ class SceneShape : public sf::Drawable, public Button {
 public:
     ~SceneShape() override = 0;
 
-    void set_selected(bool is_selected);
-    bool selected() const;
+    void press() override;
 
     void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
@@ -22,6 +21,10 @@ public:
 
 protected:
     explicit SceneShape();
+
+private:
+    void set_selected(bool is_selected);
+    bool selected() const;
 
 private:
     bool is_selected_;

@@ -13,7 +13,7 @@ void Scene::process_press(sf::Vector2f const point) {
     for (std::vector<SceneShape *>::reverse_iterator it = objects_.rbegin();
          it != objects_.rend(); ++it) {
         if ((*it)->contains(point)) {
-            (*it)->set_selected(!(*it)->selected());
+            (*it)->press();
             break;
         }
     }

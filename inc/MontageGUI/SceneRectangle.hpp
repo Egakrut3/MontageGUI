@@ -10,8 +10,6 @@ public:
     explicit SceneRectangle(sf::Vector2f size = sf::Vector2f{});
     ~SceneRectangle() override;
 
-    void press() override;
-
     bool contains(sf::Vector2f point) override;
 
     sf::Shape       &get_shape() override;

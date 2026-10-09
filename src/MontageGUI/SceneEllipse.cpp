@@ -16,10 +16,6 @@ SceneEllipse::SceneEllipse(sf::Vector2f const size,
 }
 SceneEllipse::~SceneEllipse() = default;
 
-void SceneEllipse::press() {
-    set_selected(!selected());
-}
-
 bool SceneEllipse::contains(sf::Vector2f point) {
     return (interior_.getGeometricCenter() -
             interior_.getInverseTransform().transformPoint(point))

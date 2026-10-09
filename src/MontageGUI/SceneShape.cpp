@@ -6,19 +6,24 @@ SceneShape::SceneShape() : sf::Drawable{}, Button{}, is_selected_{} {}
 SceneShape::~SceneShape() = default;
 
 void SceneShape::set_selected(bool const is_selected) {
-    if (is_selected) {
+    is_selected_ = is_selected;
+}
+
+bool SceneShape::selected() const {
+    return is_selected_;
+}
+
+void SceneShape::press() {
+    if (selected()) {
+        get_shape().setOutlineThickness(0);
+        set_selected(false);
+    }
+    else {
         constexpr float SELECTED_OUTLINE_THICKNESS = 4;
         get_shape().setOutlineThickness(SELECTED_OUTLINE_THICKNESS);
         get_shape().setOutlineColor(sf::Color::Yellow);
+        set_selected(true);
     }
-    else {
-        get_shape().setOutlineThickness(0);
-    }
-
-    is_selected_ = is_selected;
-}
-bool SceneShape::selected() const {
-    return is_selected_;
 }
 
 void SceneShape::draw(sf::RenderTarget      &target,

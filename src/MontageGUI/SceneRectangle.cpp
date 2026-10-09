@@ -11,10 +11,6 @@ SceneRectangle::SceneRectangle(sf::Vector2f const size) :
 }
 SceneRectangle::~SceneRectangle() = default;
 
-void SceneRectangle::press() {
-    set_selected(!selected());
-}
-
 bool SceneRectangle::contains(sf::Vector2f const point) {
     return interior_.getGlobalBounds().contains(point);
 }

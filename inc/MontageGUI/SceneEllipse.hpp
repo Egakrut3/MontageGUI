@@ -12,8 +12,6 @@ public:
                           std::size_t  point_count = DEFAULT_POINT_COUNT);
     ~SceneEllipse() override;
 
-    void press() override;
-
     bool contains(sf::Vector2f point) override;
 
     sf::Shape       &get_shape() override;
