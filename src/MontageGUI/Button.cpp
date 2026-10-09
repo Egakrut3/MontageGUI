@@ -1,4 +1,4 @@
-#include "MontageGUI/Common.hpp"
+#include "MontageGUI/Button.hpp"
 
 namespace MontageGUI {
 

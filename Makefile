@@ -1,9 +1,9 @@
 LINKER_FIXED_OPTIONS	+=	-lsfml-graphics -lsfml-window -lsfml-system
 
-MONTAGE_GUI_INC			=	Common Scene Application
+MONTAGE_GUI_INC			=	Button SceneShape SceneRectangle SceneEllipse Scene SceneShapeType Application
 INC						=	$(addprefix MontageGUI/,$(MONTAGE_GUI_INC))
 
-MONTAGE_GUI_SRC			=	Common Scene Application
+MONTAGE_GUI_SRC			=	Button SceneShape SceneRectangle SceneEllipse Scene SceneShapeType Application
 SRC						=	main $(addprefix MontageGUI/,$(MONTAGE_GUI_SRC))
 
 RUN_TARGET				=	prime-run taskset -c 14 ./$(TARGET)

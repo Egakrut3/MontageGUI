@@ -1,5 +1,5 @@
-#ifndef MONTAGE_COMMON
-#define MONTAGE_COMMON
+#ifndef MONTAGE_BUTTON
+#define MONTAGE_BUTTON
 
 namespace MontageGUI {
 
