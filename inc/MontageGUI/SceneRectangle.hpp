@@ -7,14 +7,14 @@ namespace MontageGUI {
 
 class SceneRectangle : public SceneShape {
 public:
-    explicit SceneRectangle(Application *ptr,
+    explicit SceneRectangle(WindowBase  *parent,
                             sf::Vector2f size = sf::Vector2f{});
-    ~SceneRectangle() override;
+    ~SceneRectangle() override final;
 
-    bool contains(sf::Vector2f point) override;
+    sf::Shape       &get_shape() override final;
+    sf::Shape const &get_shape() const override final;
 
-    sf::Shape       &get_shape() override;
-    sf::Shape const &get_shape() const override;
+    bool contains(sf::Vector2f point) override final;
 
 private:
     sf::RectangleShape interior_;

@@ -1,6 +1,6 @@
 #include "MontageGUI/Application.hpp"
 
-// TODO - Switch to value initialization {}
+// TODO - use dynamic_cast
 // TODO - restirct
 // TODO - C++ modules
 // TODO - How to differ between Compilation end and Build end

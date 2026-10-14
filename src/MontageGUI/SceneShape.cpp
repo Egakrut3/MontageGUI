@@ -2,19 +2,23 @@
 
 namespace MontageGUI {
 
-SceneShape::SceneShape(Application *const ptr) :
-    sf::Drawable{}, Button{ptr}, is_selected_{} {}
+SceneShape::SceneShape(WindowBase *const parent) :
+    WindowBase{parent}, is_selected_{} {}
 SceneShape::~SceneShape() = default;
 
 void SceneShape::set_selected(bool const is_selected) {
     is_selected_ = is_selected;
 }
-
 bool SceneShape::selected() const {
     return is_selected_;
 }
 
-void SceneShape::press() {
+void SceneShape::draw_self(sf::RenderTarget      &target,
+                           sf::RenderStates const states) const {
+    target.draw(get_shape(), states);
+}
+
+void SceneShape::press(sf::Vector2f const point [[maybe_unused]]) {
     if (selected()) {
         get_shape().setOutlineThickness(0);
         set_selected(false);
@@ -25,11 +29,6 @@ void SceneShape::press() {
         get_shape().setOutlineColor(sf::Color::Yellow);
         set_selected(true);
     }
-}
-
-void SceneShape::draw(sf::RenderTarget      &target,
-                      sf::RenderStates const states) const {
-    target.draw(get_shape(), states);
 }
 
 } // namespace MontageGUI

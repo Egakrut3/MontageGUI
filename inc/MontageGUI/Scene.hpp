@@ -2,23 +2,21 @@
 #define MONTAGE_SCENE
 
 #include "MontageGUI/SceneShape.hpp"
-#include <vector>
 
 namespace MontageGUI {
 
-class Scene : public sf::Drawable {
+class Scene : public WindowBase {
 public:
-    explicit Scene();
-    ~Scene();
+    explicit Scene(WindowBase *parent);
+    ~Scene() override final;
 
-    void process_press(sf::Vector2f point);
+    void draw_self(sf::RenderTarget &target,
+                   sf::RenderStates  states) const override final;
 
-    void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+    void press(sf::Vector2f point) override final;
 
     void add_shape(SceneShape *shape);
-
-private:
-    std::vector<SceneShape *> objects_;
+    void remove_last();
 };
 
 } // namespace MontageGUI

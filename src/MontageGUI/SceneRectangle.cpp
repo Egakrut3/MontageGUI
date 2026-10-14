@@ -2,25 +2,23 @@
 
 namespace MontageGUI {
 
-inline constexpr std::uint8_t FULL_BYTE_MASK = 0xFF;
-inline constexpr std::uint8_t HIGH_BIT_MASK  = 0x80;
-
-SceneRectangle::SceneRectangle(Application *const ptr,
+SceneRectangle::SceneRectangle(WindowBase *const  parent,
                                sf::Vector2f const size) :
-    SceneShape{ptr}, interior_{size} {
-    interior_.setFillColor(sf::Color(0, FULL_BYTE_MASK, 0, HIGH_BIT_MASK));
+    SceneShape{parent}, interior_{size} {
+    constexpr sf::Color TRANSPARENT_GREEN{0, 0xFF, 0, 0x80};
+    interior_.setFillColor(TRANSPARENT_GREEN);
 }
 SceneRectangle::~SceneRectangle() = default;
-
-bool SceneRectangle::contains(sf::Vector2f const point) {
-    return interior_.getGlobalBounds().contains(point);
-}
 
 sf::Shape &SceneRectangle::get_shape() {
     return interior_;
 }
 sf::Shape const &SceneRectangle::get_shape() const {
     return interior_;
+}
+
+bool SceneRectangle::contains(sf::Vector2f const point) {
+    return interior_.getGlobalBounds().contains(point);
 }
 
 } // namespace MontageGUI
